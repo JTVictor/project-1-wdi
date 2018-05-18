@@ -1,0 +1,95 @@
+body {
+  font-size: 20px;
+}
+
+.containerTop {
+  border: 2px red solid;
+  height: 75px;
+  background-color: red;
+}
+
+.title {
+
+}
+
+.containerMiddle {
+  display: flex;
+  border: 2px green solid;
+  height: 700px;
+  background-color: green;
+
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.containerLeft {
+  border: 2px yellow solid;
+  width: 150px;
+  background-color: yellow;
+
+
+}
+
+.scoreboardLeft {
+
+}
+
+.pictureLeft {
+
+}
+
+.playingField {
+  border: 2px blue solid;
+  width: 800px;
+  background-color: blue;
+
+}
+
+.containerRight  {
+  border: 2px yellow solid;
+  width: 150px;
+  background-color: yellow;
+
+}
+
+.scoreboardRight {
+
+}
+
+.pictureRight {
+
+}
+
+.containerBottom div {
+  border: 2px red solid;
+  height: 75px;
+  background-color: red;
+}
+
+
+.bottomInfoBar div {
+
+}
+
+////////////////////////////////////////////
+
+*{
+        box-sizing: border-box;
+        }
+
+
+
+#map {
+  width: 500px;
+  height: 500px;
+}
+
+#map div {
+  border:1px solid red;
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+#map div.blank{background-color: blue;}
+#map div.path{background-color: chartreuse;}
