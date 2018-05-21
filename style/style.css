@@ -71,11 +71,15 @@ body {
 
 }
 
+#map div.blank.clicked {
+  background-color: dodgerBlue;
+}
+
 ////////////////////////////////////////////
 
 *{
-        box-sizing: border-box;
-        }
+  box-sizing: border-box;
+}
 
 
 

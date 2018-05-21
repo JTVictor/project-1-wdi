@@ -15,8 +15,11 @@ const grid = [
 
 $(()=>{
 
-  $('#map').on('mouseover', 'div', function(){
-    $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`)
+  $('#map').on('click', 'div', function(e){
+    // $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
+    // $(this).addClass('clicked');
+    e.target.classList.toggle('clicked');
+    console.log(e);
   });
 
   $.each(grid, (i, row) => {
