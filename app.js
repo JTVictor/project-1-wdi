@@ -24,7 +24,7 @@ $(()=>{
 
   $.each(grid, (i, row) => {
     $.each(row, (j, cell) => {
-      const $element = $('<div />');
+      const $element = $('<div>');
       if(cell === 0) {
         $element.addClass('blank');
       } else if (cell === 1) {

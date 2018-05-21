@@ -16,6 +16,7 @@ body {
   display: flex;
   border: 2px green solid;
   height: 700px;
+  width: 1000px;
   background-color: green;
 
   flex-direction: row;
@@ -39,9 +40,9 @@ body {
 }
 
 .playingField {
-  border: 2px blue solid;
+  border: 2px gray solid;
   width: 900px;
-  background-color: blue;
+  background-color: gray;
 
 }
 
@@ -95,5 +96,5 @@ body {
   float: left;
 }
 
-#map div.blank{background-color: blue;}
+#map div.blank{background-color: aqua;}
 #map div.path{background-color: chartreuse;}
