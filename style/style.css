@@ -16,7 +16,6 @@ body {
   display: flex;
   border: 2px green solid;
   height: 700px;
-  width: 1000px;
   background-color: green;
 
   flex-direction: row;
