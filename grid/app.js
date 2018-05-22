@@ -12,31 +12,33 @@ const gridOver = [
 ];
 
 const gridUnder = [
+  [2,0,0,0,1,0,0,0,0,2],
+  [0,0,0,1,1,1,0,0,0,0],
+  [0,0,1,0,1,0,1,0,0,0],
+  [0,1,0,0,1,0,0,1,0,0],
+  [1,1,1,1,1,1,1,1,1,0],
+  [0,0,0,0,1,0,0,0,0,0],
+  [1,1,1,1,1,1,1,1,1,0],
+  [0,1,1,1,1,1,1,1,0,0],
   [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,1,1,0,0,0],
-  [0,0,0,0,0,0,1,1,0,0],
-  [0,0,0,0,0,0,1,0,1,0],
-  [0,0,0,0,0,0,1,0,1,0],
-  [0,1,0,0,1,1,0,0,1,0],
-  [0,1,1,1,0,0,0,1,0,0],
-  [0,0,1,0,0,0,1,0,0,0],
-  [0,0,0,1,1,1,0,0,0,0]
+  [2,0,0,0,0,0,0,0,0,2]
 ];
 
 $(()=>{
 
   $('#map').on('mouseover','div',function(){
     // $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
-    $('#cell-address').val($(this).data('x')); // this is the div we moused over
+    // $('#cell-address').val($(this).data('x')); // this is the div we moused over
+    $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
   });
 
   $.each(gridOver, (i, row) =>{
-    $.each(row, (j, cell) =>{
+    $.each(row, (j, cell) => {
       const myNewDiv = $('<div>');
+      // make me switch
       if(cell === 0){
         myNewDiv.addClass('blank');
-      } else if(cell === 1){
+      } else if (cell === 1) {
         myNewDiv.addClass('path');
       } else if (cell === 2){
         myNewDiv.addClass('shape');
@@ -44,20 +46,48 @@ $(()=>{
 
       const myDataObject = {x: i, y: j};
       myNewDiv.data(myDataObject); // set the data on myNewDiv
+      myNewDiv.appendTo('#over-grid');
+
 
       myNewDiv.on('click', function(){
         const clickedX = $(this).data('x');
         const clickedY = $(this).data('y');
-        if(gridUnder[clickedX][clickedY] === 1) {console.log('hit!');
-      } else if (gridUnder[clickedX][clickedY] === 0) {console.log('miss!');
-        };
+        console.log(clickedX, clickedY);
+        // make me switch
+        if(gridUnder[clickedX][clickedY] === 1) {
+          console.log('hit!');
 
+
+        } else if (gridUnder[clickedX][clickedY] === 0) console.log('miss!');
+
+         else if (gridUnder[clickedX][clickedY] === 2) console.log('New colour');
       });
-      myNewDiv.appendTo('#map');
     });
   });
 
+  // $('#map').on('click', 'div', function(e){
+  //   // $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
+  //   // $(this).addClass('clicked');
+  //   e.target.classList.toggle('clicked');
+  //   console.log(e);
+  // });
 
+// const x = 1;
+//
+// if (x === 0) {}
+// else if (x === 1) {}
+// else if (x === 2) {}
+//
+// switch(x){
+//   case 0:
+//     doSomething();
+//     break;
+//   case 1:
+//     sdfs;
+//     break;
+//   case 2:
+//
+// }
 
   $.each(gridUnder, (i, row) =>{
     $.each(row, (j, cell) =>{
@@ -77,11 +107,7 @@ $(()=>{
       });
 
 
-
-
-
-
-      $elementUnder.appendTo('#map');
+      $elementUnder.appendTo('#under-grid');
     });
 
   });
@@ -92,13 +118,6 @@ $(()=>{
 //
 //
 //
-
-
-
-
-
-
-
 
 });
 
