@@ -29,15 +29,23 @@
         float: left;
       }
 
-      #map div.blank{background-color: dodgerblue;}
-      #map div.path{background-color: tomato;}
-      #map div.shape{background-color: green;}
+      #map div.under_blank{background-color: dodgerblue;}
+      #map div.under_shape{background-color: tomato;}
+      #map div.over_blank{background-color: blue;}
+      #map div.over_success{background-color: red;}
+      #map div.over_fail{background-color: green;}
+      #map div.under_extra{background-color: yellow;}
+
+
 
     </style>
     <div id="map">
       <div id="over-grid"></div>
+      <br>
       <div id="under-grid"></div>
     </div>
+
+    <div id="container"></div>
 
     <input type="text" id="cell-address">
 

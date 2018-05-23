@@ -1,3 +1,5 @@
+
+
 const gridOver = [
   [0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0],
@@ -12,55 +14,85 @@ const gridOver = [
 ];
 
 const gridUnder = [
-  [2,0,0,0,1,0,0,0,0,2],
-  [0,0,0,1,1,1,0,0,0,0],
-  [0,0,1,0,1,0,1,0,0,0],
-  [0,1,0,0,1,0,0,1,0,0],
-  [1,1,1,1,1,1,1,1,1,0],
-  [0,0,0,0,1,0,0,0,0,0],
-  [1,1,1,1,1,1,1,1,1,0],
-  [0,1,1,1,1,1,1,1,0,0],
   [0,0,0,0,0,0,0,0,0,0],
-  [2,0,0,0,0,0,0,0,0,2]
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,1,1,0,0,0,1,1,0,0],
+  [0,1,1,0,0,0,1,1,0,0],
+  [0,0,0,0,1,0,0,0,0,0],
+  [0,0,0,0,1,0,0,0,0,0],
+  [0,0,0,0,1,0,0,0,0,0],
+  [0,1,0,0,0,0,0,1,0,0],
+  [0,0,1,1,1,1,1,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0]
 ];
 
 $(()=>{
 
   $('#map').on('mouseover','div',function(){
-    // $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
-    // $('#cell-address').val($(this).data('x')); // this is the div we moused over
     $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
   });
+
 
   $.each(gridOver, (i, row) =>{
     $.each(row, (j, cell) => {
       const myNewDiv = $('<div>');
       // make me switch
       if(cell === 0){
-        myNewDiv.addClass('blank');
+        myNewDiv.addClass('over_blank');
       } else if (cell === 1) {
-        myNewDiv.addClass('path');
+        myNewDiv.addClass('over_sucess');
       } else if (cell === 2){
-        myNewDiv.addClass('shape');
+        myNewDiv.addClass('over_fail');
       }
+
+
 
       const myDataObject = {x: i, y: j};
       myNewDiv.data(myDataObject); // set the data on myNewDiv
       myNewDiv.appendTo('#over-grid');
 
 
+
+
+
       myNewDiv.on('click', function(){
         const clickedX = $(this).data('x');
         const clickedY = $(this).data('y');
+
+
+
         console.log(clickedX, clickedY);
+
+
+
         // make me switch
         if(gridUnder[clickedX][clickedY] === 1) {
           console.log('hit!');
 
+          // gridOver[clickedX][clickedY] = 1;
+
+
+           myNewDiv.toggleClass('over_success');
+
+
+
+///////
+
+          //
+          // $('#map').on('click', 'div', function(e){
+          //    // $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
+          //   $(this).addClass('chosen');
+          //   e.target.classList.toggle('chosen');
+          //   console.log(e);
+
+          // });
+
+
+//////////
 
         } else if (gridUnder[clickedX][clickedY] === 0) console.log('miss!');
 
-         else if (gridUnder[clickedX][clickedY] === 2) console.log('New colour');
+        else if (gridUnder[clickedX][clickedY] === 2) console.log('item');
       });
     });
   });
@@ -93,11 +125,11 @@ $(()=>{
     $.each(row, (j, cell) =>{
       const $elementUnder = $('<div>');
       if(cell === 0){
-        $elementUnder.addClass('blank');
+        $elementUnder.addClass('under_blank');
       } else if(cell === 1){
-        $elementUnder.addClass('path');
+        $elementUnder.addClass('under_shape');
       } else if (cell === 2){
-        $elementUnder.addClass('shape');
+        $elementUnder.addClass('under_extra');
       }
 
       $elementUnder.data({x: i, y: j});
@@ -108,6 +140,7 @@ $(()=>{
 
 
       $elementUnder.appendTo('#under-grid');
+
     });
 
   });
