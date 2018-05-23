@@ -70,31 +70,18 @@ $(()=>{
         // make me switch
         if(gridUnder[clickedX][clickedY] === 1) {
           console.log('hit!');
+          myNewDiv.addClass('over_success')
 
-          // gridOver[clickedX][clickedY] = 1;
+          // myNewDiv.toggleClass('over_success');
+          // myNewDiv.change('over_success');
+          gridUnder[clickedX][clickedY] = 0;
+          console.log(gridUnder[clickedX])
+          }
 
+          else if (gridUnder[clickedX][clickedY] === 0) console.log('miss!');
+          // myNewDiv.toggleClass('over_fail');
 
-           myNewDiv.toggleClass('over_success');
-
-
-
-///////
-
-          //
-          // $('#map').on('click', 'div', function(e){
-          //    // $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
-          //   $(this).addClass('chosen');
-          //   e.target.classList.toggle('chosen');
-          //   console.log(e);
-
-          // });
-
-
-//////////
-
-        } else if (gridUnder[clickedX][clickedY] === 0) console.log('miss!');
-
-        else if (gridUnder[clickedX][clickedY] === 2) console.log('item');
+        // else if (gridUnder[clickedX][clickedY] === 2) console.log('item');
       });
     });
   });
