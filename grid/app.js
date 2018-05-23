@@ -21,7 +21,7 @@ const gridUnder = [
   [0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,1,0,0,0,0,0],
-  [0,0,0,0,1,1,1,0,0,0,0],
+  [0,0,0,0,0,1,0,0,0,0,0],
   [0,0,0,0,0,1,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0],
   [0,0,0,0,0,0,0,0,0,0,0],
@@ -33,10 +33,13 @@ let gameCleared = false;
 
 $(()=>{
 
+// Logs the X Y cordinates of the array
+
   $('#map').on('mouseover','div',function(){
     $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
   });
 
+// Iterates over the array and assigns a value. This also assigns a cell colouyr in CSS
 
   $.each(gridOver, (i, row) =>{
     $.each(row, (j, cell) => {
@@ -50,114 +53,56 @@ $(()=>{
         $myNewDiv.addClass('over_fail');
       }
 
-
+// Creates a data object of the XY coordinates
 
       const myDataObject = {x: i, y: j};
       $myNewDiv.data(myDataObject); // set the data on myNewDiv
       $myNewDiv.appendTo('#over-grid');
 
-
+// Creates a function that identifies what cell has been clicked on
 
       $myNewDiv.on('click', function(){
         const clickedX = $(this).data('x');
         const clickedY = $(this).data('y');
 
-        // console.log(clickedX, clickedY);
+// Identifies what cell has been clicked on and changes it numerical value and colour
+// Can use switch on this code
 
-        // make me switch
         if(gridUnder[clickedX][clickedY] === 1) {
           // console.log('hit!');
           $myNewDiv.addClass('over_success');
-
-          // myNewDiv.toggleClass('over_success');
-          // myNewDiv.change('over_success');
           gridUnder[clickedX][clickedY] = 0;
-          // console.log(gridUnder[clickedX]);
-
-          // console.log(gridUnder);
         } else if (gridUnder[clickedX][clickedY] === 0){
           // console.log('miss!');
           $myNewDiv.addClass('over_fail');
         }
 
-
-
-        ///////// First function
+// Checks the win conditions on array
 
         function checkWin(array) {
           const rowsValidity = [];
           for (var i = 0; i < array.length; i++) {
-            // console.log(array[i]);
             rowsValidity[i] = array[i].includes(1);
           }
           gameCleared = rowsValidity.includes(true) ? false : true;
-          // return gameCleared;
           console.log(gameCleared);
         }
 
         checkWin(gridUnder);
-        // console.log(checkWin(gridUnder));
 
+// Endgame function
 
+//         function endGame() {
+//           if(gameCleared = true) {
+//             return console.log('You Win!');
+//           }
+//         }
+//
+// endGame();
 
-        ////// Second function
-
-        // function arrayIsAllZeros(arr1, arr2) {
-        // 	for (l = 0; l < arr1.length; l++) {
-        //     for (k = 0; k < arr2.length; k++)
-        // 		if(arr1[k] !== 0) return false;
-        //     }
-        // 	return true;
-        // }
-        //
-        //
-        // console.log(arrayIsAllZeros(gridOver,gridUnder));
-
-        function endGame() {
-          if(gameCleared) {
-            //functionality after game is won in here!
-          }
-        }
-
-
-
-
-
-
-
-
-
-
-        // myNewDiv.toggleClass('over_fail');
-
-        // else if (gridUnder[clickedX][clickedY] === 2) console.log('item');
       });
     });
   });
-
-  // $('#map').on('click', 'div', function(e){
-  //   // $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
-  //   // $(this).addClass('clicked');
-  //   e.target.classList.toggle('clicked');
-  //   console.log(e);
-  // });
-
-  // const x = 1;
-  //
-  // if (x === 0) {}
-  // else if (x === 1) {}
-  // else if (x === 2) {}
-  //
-  // switch(x){
-  //   case 0:
-  //     doSomething();
-  //     break;
-  //   case 1:
-  //     sdfs;
-  //     break;
-  //   case 2:
-  //
-  // }
 
   $.each(gridUnder, (i, row) =>{
     $.each(row, (j, cell) =>{
@@ -176,125 +121,15 @@ $(()=>{
         console.log($(this).data());
       });
 
-
       $elementUnder.appendTo('#under-grid');
 
     });
-
   });
-
-
-
-//   function arraysAreIdentical(arr1, arr2) {
-//   	for (i = 0; i < arr1.length; i++) {
-//   		if(arr1[i] !== arr2[i]) return false;
-//       }
-//   	return true;
-//   }
-//
-// console.log(arraysAreIdentical(gridUnder,gridOver));
-
-
-
-  // {console.log('WINNER')};
-
-
-  // } else if (gridUnder != [
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0],
-  //   [0,0,0,0,0,0,0,0,0,0,0]
-  // ]){
-  //   console.log('Try again');
-  // }
-
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-// ////////////////////////////////////////////////////
-//
-// const grid = [
-//   [1,1,1,1,1,1,1,1,1,1],
-//   [1,0,0,0,0,0,0,0,0,1],
-//   [1,0,0,0,0,0,0,0,0,1],
-//   [1,0,0,0,0,0,0,0,0,1],
-//   [1,0,0,0,0,0,0,0,0,1],
-//   [1,0,0,0,0,0,0,0,0,1],
-//   [1,0,0,0,0,0,0,0,0,1],
-//   [1,0,0,0,0,0,0,0,0,1],
-//   [1,0,0,0,0,0,0,0,0,1],
-//   [1,1,1,1,1,1,1,1,1,1]
-// ];
-//
-// $(()=>{
-//
-//   $('#map').on('click','div',function(){
-//     $('#cell-address').val(`${$(this).data('x')}-${$(this).data('y')}`);
-//     console.log(this);
-//     this.addClass('highlighted');
-//   });
-//
-//   $.each(grid, (i, row) =>{
-//     $.each(row, (j, cell) =>{
-//       const $element = $('<div />');
-//       if(cell === 0) {
-//         $element.addClass('blank');
-//       } else if(cell === 1){
-//         $element.addClass('path');
-//       }
-//
-//       $element.data({x: i, y: j});
-//
-//       $element.on('click', function(){
-//         console.log($(this).data());
-//         // $element
-//       });
-//       $element.appendTo('#map');
-//     });
-//   });
-// });
-
-
 
 ///////////////////////////////////////
 
-//
+// Loop functions to check for win conditions suggested by Rob.
 //
 //
 // function arrayIsAllZeros(arr1, arr2) {
@@ -312,3 +147,24 @@ $(()=>{
 //     }
 // 	return true;
 // }
+
+///////////////////////////////////////////
+
+//// Switch example given by Rob.
+
+  // const x = 1;
+  //
+  // if (x === 0) {}
+  // else if (x === 1) {}
+  // else if (x === 2) {}
+  //
+  // switch(x){
+  //   case 0:
+  //     doSomething();
+  //     break;
+  //   case 1:
+  //     sdfs;
+  //     break;
+  //   case 2:
+  //
+  // }

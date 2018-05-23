@@ -7,13 +7,14 @@
         <link rel="stylesheet" href="./style/style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
         <script src="./app.js" charset="utf-8"></script>
+        <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron|Righteous" rel="stylesheet">
   </head>
   <body>
 
 
 <div class="containerTop">
   <div class="title">
-    Title Bar
+    <h1>GENERIC GUESSING GAME</h1>
   </div>
 </div>
 
@@ -21,37 +22,49 @@
 
   <div class="containerLeft">
     <div class="scoreboardLeft">
-    Scoreboard L
+    <p>Player Score</p>
     </div>
-    <div class="pictureLeft">
+    <!-- <div class="pictureLeft">
     Picture L
-    </div>
+    </div> -->
   </div>
 
   <div class="playingField">
-  Playing Field
+  <!-- Playing Field -->
 
-    <div id="map"></div>
+    <div id="map">
+      <div id="over-grid"></div>
+    </div>
 
 
   </div>
 
   <div class="containerRight">
     <div class="scoreboardRight">
-    Scoreboard R
+    <p>Computer Score</p>
     </div>
-    <div class="pictureRight">
+    <!-- <div class="pictureRight">
     Picture R
-    </div>
+    </div> -->
   </div>
 
 </div>
 
 <div class="containerBottom">
   <div class="bottomInfoBar">
-  Bottom Info Bar
-  <input type="text" id="cell-address">
+  <p>Click a cell. if you reveal a shape, have another go. If unsucessful, it is the computer's turn. The winner is the person to uncover the last cell.</p>
+  <!-- <input type="text" id="cell-address"> -->
   </div>
+</div>
+
+
+<div id="map">
+  <div id="over-grid"></div>
+</div>
+
+
+<div id="map">
+  <div id="under-grid"></div>
 </div>
 
   </body>
