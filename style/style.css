@@ -45,7 +45,7 @@ color: darkmagenta;
 .containerMiddle {
   display: flex;
   border: 2px green solid;
-  height: 700px;
+  height: 800px;
   background-color: auto;
 
   flex-direction: row;
@@ -59,7 +59,7 @@ color: darkmagenta;
   background-color: auto;
   margin: 6px;
   padding: 6px;
-  width: 150px;
+  width: 200px;
   text-align: center;
 }
 
@@ -90,7 +90,7 @@ color: darkmagenta;
   background-color: auto;
   margin: 6px;
   padding: 6px;
-  width: 150px;
+  width: 200px;
   text-align: center;
 }
 
@@ -114,7 +114,6 @@ color: darkmagenta;
   text-align: center;
 }
 
-
 .bottomInfoBar div {
 
 }
@@ -130,17 +129,19 @@ color: darkmagenta;
 }
 
 #map div {
-  width: 660px;
-  height: 660px;
+  width: 720px;
+  height: 720px;
+  background-color: black;
+  border-radius: 30px;
+  text-align: center;
   /* display: inline-block; */
 }
 #map div div {
-  border: 0px solid black;
+  border: 2px solid black;
   width: 60px;
   height: 60px;
   float: left;
-
-  border-radius: 50px;
+  border-radius:15px;
 }
 
 #map div.under_blank{background-color: dodgerblue;}
@@ -149,9 +150,6 @@ color: darkmagenta;
 #map div.over_success{background-color: red;}
 #map div.over_fail{background-color: green;}
 #map div.under_extra{background-color: yellow;}
-
-
-
 
 
 /*
