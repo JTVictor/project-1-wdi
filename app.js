@@ -57,6 +57,7 @@ const gridPatterns = [
 
 let gameCleared = false;
 let level = 0;
+let score = 5;
 
 $(()=>{
 
@@ -100,9 +101,11 @@ $(()=>{
             // console.log('hit!');
             $myNewDiv.addClass('over_success');
             gridPatterns[level][clickedX][clickedY] = 0;
+            score = score + 1;
           } else if (gridPatterns[level][clickedX][clickedY] === 0){
             // console.log('miss!');
             $myNewDiv.addClass('over_fail');
+            score = score - 1;
           }
 
           // Checks the win conditions on array
@@ -117,13 +120,23 @@ $(()=>{
           }
           checkWin(gridPatterns[level]);
 
+          console.log(score);
+          if (score === 0) {
+            console.log('You lose');
+        } else if (score > 20) {console.log('You win the game!');
+        }
+
           // Endgame function
 
-          function endGame() {
+          function endLevel() {
             if(gameCleared) {
               console.log('You Win!');
+
+
               level++;
+              score = score + 5;
               console.log(level)
+
               // $map.empty();
               // $myNewDiv.detach();
               // $map.detach();
@@ -135,9 +148,12 @@ $(()=>{
               gameCleared = false;
               // $myNewDiv.appendTo('#over-grid');
               // $myNewDiv.appendTo('#over-grid');
+
+
             }
           }
-          endGame();
+          endLevel();
+
         });
       });
     });
