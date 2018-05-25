@@ -50,11 +50,12 @@ color: darkmagenta;
 
 .containerMiddle {
   display: flex;
-  border: 2px green solid;
+  /* border: 2px green solid; */
   height: 800px;
   background-color: auto;
   flex-direction: row;
   justify-content: space-around;
+  z-index: -1;
 }
 
 .containerLeft {
@@ -75,16 +76,16 @@ color: darkmagenta;
 
 }
 
-.playingField {
+/* .playingField {
   /* border: 5px gray solid; */
-  border: 5px midnightblue solid;
+  /* border: 5px midnightblue solid;
   border-radius: 30px;
   background-color: auto;
   margin: 6px;
   padding 2px;
-  width: 900px;
+  width: 900px; */
 
-}
+/* } */
 
 .containerRight  {
   /* border: 5px yellow solid; */
@@ -95,6 +96,7 @@ color: darkmagenta;
   padding: 6px;
   width: 200px;
   text-align: center;
+  z-index: 1
 }
 
 .scoreboardRight {
@@ -142,12 +144,18 @@ ul {
   box-sizing: border-box;
 }
 
+#map > div{
+  margin-top: 50px;
+}
+
 #map div {
-  width: 720px;
-  height: 720px;
+  width: 708px;
+  height: 708px;
   background-color: black;
   border-radius: 30px;
   text-align: center;
+  padding-top: 20 px;
+  z-index: 2;
   /* display: inline-block; */
 }
 #map div div {
@@ -165,6 +173,10 @@ ul {
 #map div.over_fail{background-color: #FD1C03;}
 #map div.under_extra{background-color: yellow;}
 
+
+#overgrid {
+  margin-top: 400px;
+}
 
 /*
 #map div {

@@ -14,3 +14,9 @@ I would also liked to have displayed the level names differently. Instead of a c
 As well as this, once the final correct cell is selected, the grid immediately resets for the next level. The final picture is not displayed properly for the player to enjoy.
 
 The one major bug that needs fixing is that if a successful (green) cell has been clicked on more than once, it then turns to red reflecting an unsuccessful state. This is reflected in the fact that the values of the cells are reflected in an array and the value is decremented on each click.
+
+What was a win? Choosing a simple achievable target and succeeding.
+
+What was a challenge? Getting the won conditions to work.
+
+What would you do differently? Add a two player mode.
