@@ -21,9 +21,9 @@ const gridPatterns = [
     [0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,1,0,0,0,0,0],
-    [0,0,0,0,0,1,0,0,0,0,0],
-    [0,0,0,0,0,1,0,0,0,0,0],
+    [0,0,0,0,1,1,1,0,0,0,0],
+    [0,0,0,0,1,0,1,0,0,0,0],
+    [0,0,0,0,1,1,1,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0],
@@ -51,15 +51,78 @@ const gridPatterns = [
     [0,0,0,1,1,1,1,1,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0]
-  ]
+  ], [
+    [0,0,0,0,0,1,0,0,0,0,0],
+    [0,0,0,0,1,1,1,0,0,0,0],
+    [0,0,0,1,0,1,0,1,0,0,0],
+    [0,0,1,0,0,1,0,0,1,0,0],
+    [0,1,1,1,1,1,1,1,1,1,0],
+    [0,0,0,0,0,1,0,0,0,0,0],
+    [0,1,1,1,1,1,1,1,1,1,0],
+    [0,0,1,1,1,1,1,1,1,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0]
+  ], [
+    [0,0,0,0,0,1,0,0,0,0,0],
+    [0,1,0,0,0,1,0,0,0,1,0],
+    [0,0,1,0,1,1,1,0,1,0,0],
+    [0,0,0,1,0,0,0,1,0,0,0],
+    [0,0,1,0,0,0,0,0,1,0,0],
+    [1,1,1,0,0,0,0,0,1,1,1],
+    [0,0,1,0,0,0,0,0,1,0,0],
+    [0,0,0,1,0,0,0,1,0,0,0],
+    [0,0,1,0,1,1,1,0,1,0,0],
+    [0,1,0,0,0,1,0,0,0,1,0],
+    [0,0,0,0,0,1,0,0,0,0,0]
+  ], [
+    [0,0,0,0,0,0,0,0,0,0,0],
+    [0,0.0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,1,1,0,0,0],
+    [0,0,0,0,0,0,0,1,1,0,0],
+    [0,0,0,0,0,0,0,1,0,1,0],
+    [0,0,0,0,0,0,0,1,0,1,0],
+    [0,0,1,0,0,1,1,0,0,1,0],
+    [0,0,1,1,1,0,0,0,1,0,0],
+    [0,0,0,1,0,0,0,1,0,0,0],
+    [0,0,0,0,1,1,1,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0]
+  ], [
+    [0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,1,1,1,1,1,0,0,0],
+    [0,0,1,0,0,0,0,0,1,0,0],
+    [0,1,1,1,1,1,1,1,1,1,0],
+    [0,1,0,0,0,0,0,0,0,1,0],
+    [0,1,0,0,0,0,0,0,0,1,0],
+    [0,1,0,0,1,1,1,0,0,1,0],
+    [0,1,0,0,1,0,1,0,0,1,0],
+    [0,1,1,1,1,1,1,1,1,1,0],
+    [0,0,0,0,0,0,0,0,0,0,0]
+]
+
+
+
+
+
 ];
+
+const gridNames = ["Square", "Horse", "Face", "Boat", "Sun", "Moon", "House"];
 
 
 let gameCleared = false;
 let level = 0;
 let score = 5;
 
+
 $(()=>{
+  const $scoreTable = $('#score');
+  // console.log($scoreTable);
+  // let $scoreCounter = $('.score');
+  // function scoreCounter. (html($score);
+  $scoreTable.text(score);
+  const $endScreen = $('.endScreen');
+  const $startScreen = $('.startScreen');
+  // $endScreen.hide();
 
   // Logs the X Y cordinates of the array
   const $map = $('#map');
@@ -75,7 +138,7 @@ $(()=>{
         const $myNewDiv = $('<div>');
         // make me switch
         if(cell === 0){
-          $myNewDiv.addClass('over_blank');
+          $myNewDiv.addClass('over_blank')
         } else if (cell === 1) {
           $myNewDiv.addClass('over_success');
         } else if (cell === 2){
@@ -102,10 +165,13 @@ $(()=>{
             $myNewDiv.addClass('over_success');
             gridPatterns[level][clickedX][clickedY] = 0;
             score = score + 1;
+            $scoreTable.text(score);
+            console.log(score);
           } else if (gridPatterns[level][clickedX][clickedY] === 0){
             // console.log('miss!');
             $myNewDiv.addClass('over_fail');
             score = score - 1;
+            $scoreTable.text(score);
           }
 
           // Checks the win conditions on array
@@ -117,14 +183,19 @@ $(()=>{
             }
             gameCleared = rowsValidity.includes(true) ? false : true;
             console.log(gameCleared, level);
+            console.log(gridNames)
           }
           checkWin(gridPatterns[level]);
+
+
 
           console.log(score);
           if (score === 0) {
             console.log('You lose');
-        } else if (score > 20) {console.log('You win the game!');
-        }
+            $startScreen.hide();
+            // $endScreen.show();
+          } else if (score > 20) {console.log('You win the game!');
+          }
 
           // Endgame function
 
@@ -132,9 +203,9 @@ $(()=>{
             if(gameCleared) {
               console.log('You Win!');
 
-
               level++;
               score = score + 5;
+              $scoreTable.text(score);
               console.log(level)
 
               // $map.empty();

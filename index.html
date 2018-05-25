@@ -3,13 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>GAME!</title>
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron|Righteous" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="./style/style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
         <script src="./app.js" charset="utf-8"></script>
-        <link href="https://fonts.googleapis.com/css?family=Monoton|Orbitron|Righteous" rel="stylesheet">
   </head>
   <body>
+
+<div class="startscreen">
+
+</div>
 
 
 <div class="containerTop">
@@ -23,11 +27,13 @@
   <div class="containerLeft">
     <div class="scoreboardLeft">
     <p>Player Score</p>
+    <div id="score"></div>
+
     </div>
     <!-- <div class="pictureLeft">
     Picture L
-    </div> -->
-  </div>
+  </div> -->
+</div>
 
   <div class="playingField">
   <!-- Playing Field -->
@@ -41,7 +47,33 @@
 
   <div class="containerRight">
     <div class="scoreboardRight">
-    <p>Computer Score</p>
+    <!-- <p>Levels</p> -->
+    <ul>
+      <li>LEVELS</li>
+      <br>
+      <li>Square</li>
+      <li>Horse</li>
+      <li>Face</li>
+      <li>Boat</li>
+      <li>Sun</li>
+      <li>Moon</li>
+      <li>House</li>
+      <li>Cat</li>
+      <li>Rocket</li>
+      <li>Mug</li>
+      <li>Person</li>
+      <li>Plus</li>
+      <li>Minus</li>
+      <li>Divide</li>
+      <li>Multiply</li>
+      <li>Equals</li>
+      <li></li>
+    </ul>
+
+
+
+
+
     </div>
     <!-- <div class="pictureRight">
     Picture R
@@ -52,12 +84,16 @@
 
 <div class="containerBottom">
   <div class="bottomInfoBar">
-  <p>Click a cell. if you reveal a shape, have another go. If unsucessful, it is the computer's turn. The winner is the person to uncover the last cell.</p>
+  <p>Click a cell. Guess the shape. Correct guess gains apoint. Incorrect guess loses a point. Complete level gains 5 extra points</p>
   <!-- <input type="text" id="cell-address"> -->
   </div>
 </div>
 
+<div class="endscreen">
 
+
+
+</div>
 
   </body>
 </html>

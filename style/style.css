@@ -19,7 +19,7 @@ h1 {
 font-family: 'Monoton', cursive;
 /* font-family: 'Righteous', cursive; */
 /* font-family: 'Orbitron', sans-serif; */
-font-size: 55px;
+font-size: 60px;
 /* font-weight: bold; */
 color: darkmagenta;
 }
@@ -33,9 +33,15 @@ color: darkmagenta;
   background-color: auto;
   margin: 6px;
   /* padding-top: 2px; */
-  padding-bottom: 50px;
+  padding-bottom: 60px;
   text-align: center;
 
+}
+
+#score {
+  font-family: 'Monoton', cursive;
+  font-size: 80px;
+  color: darkmagenta;
 }
 
 .title {
@@ -47,7 +53,6 @@ color: darkmagenta;
   border: 2px green solid;
   height: 800px;
   background-color: auto;
-
   flex-direction: row;
   justify-content: space-around;
 }
@@ -64,7 +69,6 @@ color: darkmagenta;
 }
 
 .scoreboardLeft {
-
 }
 
 .pictureLeft {
@@ -80,7 +84,6 @@ color: darkmagenta;
   padding 2px;
   width: 900px;
 
-
 }
 
 .containerRight  {
@@ -95,6 +98,13 @@ color: darkmagenta;
 }
 
 .scoreboardRight {
+padding-right: 30px;
+
+font-family: 'Righteous', cursive;
+/* font-family: 'Orbitron', sans-serif; */
+font-size: 25px;
+font-weight: bold;
+color: darkmagenta;
 
 }
 
@@ -116,6 +126,10 @@ color: darkmagenta;
 
 .bottomInfoBar div {
 
+}
+
+ul {
+  list-style-type: none;
 }
 
 /* #map div.blank.clicked {
@@ -146,9 +160,9 @@ color: darkmagenta;
 
 #map div.under_blank{background-color: dodgerblue;}
 #map div.under_shape{background-color: tomato;}
-#map div.over_blank{background-color: blue;}
-#map div.over_success{background-color: red;}
-#map div.over_fail{background-color: green;}
+#map div.over_blank{background-color: #3852CC;}
+#map div.over_success{background-color: #00FF33;}
+#map div.over_fail{background-color: #FD1C03;}
 #map div.under_extra{background-color: yellow;}
 
 
