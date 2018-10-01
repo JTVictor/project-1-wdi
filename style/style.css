@@ -7,36 +7,18 @@ body {
   font-size: 20px;
 }
 
-p {
-  font-family: 'Righteous', cursive;
-  /* font-family: 'Orbitron', sans-serif; */
-  font-size: 25px;
-  font-weight: bold;
-  color: darkmagenta;
-}
 
-h1 {
-font-family: 'Monoton', cursive;
-/* font-family: 'Righteous', cursive; */
-/* font-family: 'Orbitron', sans-serif; */
-font-size: 60px;
-/* font-weight: bold; */
-color: darkmagenta;
-}
 
 
 .containerTop {
-  /* border: 5px red solid; */
+  display: flex;
   border: 5px midnightblue solid;
-  border-radius: 30px;
   height: 75px;
-  background-color: auto;
-  margin: 6px;
-  /* padding-top: 2px; */
-  padding-bottom: 60px;
   text-align: center;
-
+  justify-content: center;
+  margin: 20px;
 }
+
 
 #score {
   font-family: 'Monoton', cursive;
@@ -44,97 +26,14 @@ color: darkmagenta;
   color: darkmagenta;
 }
 
-.title {
-  font-family: 'Righteous', cursive;
-}
 
-.containerMiddle {
-  display: flex;
-  border: 2px green solid;
-  height: 800px;
-  background-color: auto;
-  flex-direction: row;
-  justify-content: space-around;
-}
 
-.containerLeft {
-  /* border: 5px yellow solid; */
-  border: 5px midnightblue solid;
-  border-radius: 30px;
-  background-color: auto;
-  margin: 6px;
-  padding: 6px;
-  width: 200px;
-  text-align: center;
-}
 
-.scoreboardLeft {
-}
 
-.pictureLeft {
 
-}
 
-.playingField {
-  /* border: 5px gray solid; */
-  border: 5px midnightblue solid;
-  border-radius: 30px;
-  background-color: auto;
-  margin: 6px;
-  padding 2px;
-  width: 900px;
 
-}
 
-.containerRight  {
-  /* border: 5px yellow solid; */
-  border: 5px midnightblue solid;
-  border-radius: 30px;
-  background-color: auto;
-  margin: 6px;
-  padding: 6px;
-  width: 200px;
-  text-align: center;
-}
-
-.scoreboardRight {
-padding-right: 30px;
-
-font-family: 'Righteous', cursive;
-/* font-family: 'Orbitron', sans-serif; */
-font-size: 25px;
-font-weight: bold;
-color: darkmagenta;
-
-}
-
-.pictureRight {
-
-}
-
-.containerBottom div {
-  /* border: 5px red solid; */
-  border: 5px midnightblue solid;
-  border-radius: 30px;
-  height: 75px;
-  background-color: auto;
-  margin: 6px;
-  padding: 6px;
-  padding-bottom: 35px;
-  text-align: center;
-}
-
-.bottomInfoBar div {
-
-}
-
-ul {
-  list-style-type: none;
-}
-
-/* #map div.blank.clicked {
-  background-color: dodgerBlue;
-} */
 
 ////////////////////////////////////////////
 
@@ -142,12 +41,15 @@ ul {
   box-sizing: border-box;
 }
 
+
+
 #map div {
+  /* display: flex; */
   width: 720px;
   height: 720px;
-  background-color: black;
-  border-radius: 30px;
-  text-align: center;
+  background-color: red;
+  /* border-radius: 30px; */
+  /* text-align: center; */
   /* display: inline-block; */
 }
 #map div div {
@@ -155,7 +57,8 @@ ul {
   width: 60px;
   height: 60px;
   float: left;
-  border-radius:15px;
+  /* justify-content: center; */
+
 }
 
 #map div.under_blank{background-color: dodgerblue;}
@@ -164,20 +67,3 @@ ul {
 #map div.over_success{background-color: #00FF33;}
 #map div.over_fail{background-color: #FD1C03;}
 #map div.under_extra{background-color: yellow;}
-
-
-/*
-#map div {
-  width: 500px;
-  height: 500px;
-}
-
-#map div {
-  border:1px solid red;
-  width: 50px;
-  height: 50px;
-  float: left;
-}
-
-#map div.blank{background-color: aqua;}
-#map div.path{background-color: chartreuse;} */
